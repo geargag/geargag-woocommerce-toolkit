@@ -1,10 +1,10 @@
 <?php
 
-namespace vnh_namespace\settings_page;
+namespace GearGag_WooCommerce_Toolkit\settings_page;
 
 defined('WPINC') || die();
 
-use vnh_namespace\tools\Register_Settings;
+use GearGag_WooCommerce_Toolkit\tools\Register_Settings;
 
 class Tab_Settings extends Register_Settings {
 	public $default_settings = [

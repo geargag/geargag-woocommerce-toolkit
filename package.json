@@ -14,13 +14,14 @@
         "lastTranslator": "Vu Nam Hung <vunamhung@gmail.com>"
     },
     "plugin": {
-        "namespace": "Plugin_Boilerplate",
-        "prefix": "plugin_boilerplate",
-        "slug": "plugin-boilerplate",
-        "name": "Plugin Boilerplate by VNH",
-        "short_name": "Plugin Boilerplate",
+        "namespace": "GearGag_WooCommerce_Toolkit",
+        "prefix": "geargag_woocommerce_toolkit",
+        "slug": "geargag-woocommerce-toolkit",
+        "name": "GearGag WooCommerce Toolkit",
+        "short_name": "GearGag WooCommerce Toolkit",
+        "description": "vnh_name is essential toolkit for WooCommerce",
         "version": "1.0.0",
-        "tags": "woocommerce, currency, switcher, exchange, currency for woocommerce, multi currency for woocommerce, woocommerce multi currency, woocommerce currency, currency switcher, woocommerce currency, bitcoin",
+        "tags": "woocommerce, toolkit",
         "uri": "https://geargag.com",
         "author": "GearGag Team",
         "contributors": "geargag",
@@ -34,7 +35,6 @@
         "license": "GPL-3.0",
         "license_uri": "http://www.opensource.org/licenses/gpl-license.php",
         "copyright": "Copyright (c) 2019, GearGag Group",
-        "description": "vnh_name plugin allows your customers to browse products and checkout in multiple currencies. The plugin converts WooCommerce product price, coupons, shipping price, taxes to customer-preferred currency. Customers can select the currency on front-end with widget, currencies bar. Or you can set the plugin to detect currency based on customer’s location, site’s language.",
         "wc_requires": "3.2.0",
         "wc_tested_up_to": "3.8.0"
     },

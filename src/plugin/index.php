@@ -15,14 +15,14 @@
  * WC tested up to: vnh_wc_tested_up_to
  */
 
-namespace vnh_namespace;
+namespace GearGag_WooCommerce_Toolkit;
 
 defined('WPINC') || die();
 
-use vnh_namespace\admin\Admin;
-use vnh_namespace\settings_page\Settings_Page;
-use vnh_namespace\tools\KSES;
-use vnh_namespace\tools\Register_Assets;
+use GearGag_WooCommerce_Toolkit\admin\Admin;
+use GearGag_WooCommerce_Toolkit\settings_page\Settings_Page;
+use GearGag_WooCommerce_Toolkit\tools\KSES;
+use GearGag_WooCommerce_Toolkit\tools\Register_Assets;
 
 const PLUGIN_FILE = __FILE__;
 const PLUGIN_DIR = __DIR__;

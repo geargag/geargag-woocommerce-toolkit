@@ -1,18 +1,18 @@
 <?php
 
-namespace vnh_namespace\admin;
+namespace GearGag_WooCommerce_Toolkit\admin;
 
 defined('WPINC') || die();
 
-use vnh_namespace\settings_page\Settings_Page;
-use vnh_namespace\tools\contracts\Bootable;
-use vnh_namespace\tools\contracts\Initable;
+use GearGag_WooCommerce_Toolkit\settings_page\Settings_Page;
+use GearGag_WooCommerce_Toolkit\tools\contracts\Bootable;
+use GearGag_WooCommerce_Toolkit\tools\contracts\Initable;
 use WP_Review_Me;
-use function vnh_namespace\is_woocommerce_active;
-use const vnh_namespace\PLUGIN_BASE;
-use const vnh_namespace\PLUGIN_DOCUMENT_URI;
-use const vnh_namespace\PLUGIN_SLUG;
-use const vnh_namespace\PREMIUM_URL;
+use function GearGag_WooCommerce_Toolkit\is_woocommerce_active;
+use const GearGag_WooCommerce_Toolkit\PLUGIN_BASE;
+use const GearGag_WooCommerce_Toolkit\PLUGIN_DOCUMENT_URI;
+use const GearGag_WooCommerce_Toolkit\PLUGIN_SLUG;
+use const GearGag_WooCommerce_Toolkit\PREMIUM_URL;
 
 class Admin implements Initable, Bootable {
 	public function init() {

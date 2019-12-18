@@ -1,11 +1,11 @@
 <?php
 
-namespace vnh_namespace\tools;
+namespace GearGag_WooCommerce_Toolkit\tools;
 
 defined('WPINC') || die();
 
-use vnh_namespace\tools\contracts\Bootable;
-use function vnh_namespace\flatten_version;
+use GearGag_WooCommerce_Toolkit\tools\contracts\Bootable;
+use function GearGag_WooCommerce_Toolkit\flatten_version;
 
 class Register_Assets implements Bootable {
 	public $scripts;

@@ -1,6 +1,6 @@
 <?php
 
-namespace vnh_namespace;
+namespace GearGag_WooCommerce_Toolkit;
 
 defined('WPINC') || die();
 
