@@ -16,9 +16,9 @@
     "plugin": {
         "namespace": "GearGag_WooCommerce_Toolkit",
         "prefix": "geargag_woocommerce_toolkit",
-        "slug": "geargag-woocommerce-toolkit",
-        "name": "GearGag WooCommerce Toolkit",
-        "short_name": "GearGag WooCommerce Toolkit",
+        "slug": "geargag-toolkit-for-woocommerce",
+        "name": "Toolkit for WooCommerce",
+        "short_name": "Toolkit for WooCommerce",
         "description": "vnh_name is essential toolkit for WooCommerce",
         "version": "1.0.0",
         "tags": "woocommerce, toolkit",

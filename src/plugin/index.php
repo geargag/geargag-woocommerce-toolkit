@@ -20,24 +20,20 @@ namespace GearGag_WooCommerce_Toolkit;
 defined('WPINC') || die();
 
 use GearGag_WooCommerce_Toolkit\admin\Admin;
-use GearGag_WooCommerce_Toolkit\settings_page\Settings_Page;
 use GearGag_WooCommerce_Toolkit\tools\KSES;
-use GearGag_WooCommerce_Toolkit\tools\Register_Assets;
 
 const PLUGIN_FILE = __FILE__;
 const PLUGIN_DIR = __DIR__;
 
 final class Plugin {
-	public $settings_page;
 	public $admin_notices;
-	public $frontend_assets;
-	public $backend_assets;
+	public $batch_delete;
+	public $change_paypal_item_name;
 
 	public function __construct() {
 		$this->load();
 		$this->init();
 		$this->core();
-		$this->register_assets();
 		$this->boot();
 	}
 
@@ -52,10 +48,6 @@ final class Plugin {
 			$this->admin_notices = new Admin();
 			$this->admin_notices->init();
 			$this->admin_notices->boot();
-
-			$this->settings_page = new Settings_Page();
-			$this->settings_page->init();
-			$this->settings_page->boot();
 		}
 	}
 
@@ -63,52 +55,22 @@ final class Plugin {
 		if (!is_woocommerce_active()) {
 			return;
 		}
-	}
 
-	public function register_assets() {
-		$this->backend_assets = new Register_Assets($this->register_backend_assets(), 'backend');
-		$this->backend_assets->boot();
+		$this->change_paypal_item_name = new Change_Paypal_Item_Name();
+		$this->change_paypal_item_name->boot();
 
-		//$this->frontend_assets = new Register_Assets($this->register_frontend_assets(), 'frontend');
-		//$this->frontend_assets->boot();
-	}
-
-	public function register_backend_assets() {
-		return [
-			'styles' => [
-				PLUGIN_SLUG . '-settings-page' => [
-					'src' => get_plugin_url('assets/css/settings_page.css'),
-				],
-			],
-			'scripts' => [
-				PLUGIN_SLUG . '-settings-page' => [
-					'src' => get_plugin_url('assets/js/dist/settings_page.js'),
-					'deps' => ['jquery', 'jquery-form', 'jquery-ui-sortable'],
-					'localize_script' => [
-						'settingsPage' => [
-							'saveMessage' => esc_html__('Settings Saved Successfully', 'vnh_textdomain'),
-						],
-					],
-				],
-			],
-		];
+		if (!class_exists('GearGag_Toolkit\Batch_Delete_Products')) {
+			$this->batch_delete = new Batch_Delete_Products();
+			$this->batch_delete->boot();
+		}
 	}
 
 	public function boot() {
 		add_action('plugin_loaded', [$this, 'load_plugin_textdomain']);
-		add_action('admin_enqueue_scripts', [$this, 'enqueue_backend_assets']);
-		//add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_assets']);
 	}
 
 	public function load_plugin_textdomain() {
 		load_plugin_textdomain('vnh_textdomain');
-	}
-
-	public function enqueue_backend_assets() {
-		if (is_plugin_settings_page()) {
-			wp_enqueue_style(PLUGIN_SLUG . '-settings-page');
-			wp_enqueue_script(PLUGIN_SLUG . '-settings-page');
-		}
 	}
 }
 
