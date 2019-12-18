@@ -1,20 +1,15 @@
 # vnh_name #
 
+vnh_description
+
 ## Description ##
 
-### 👓 Create Stunning Websites Visually ###
-
-Do it yourself with easy content editing in real-time. Save your money on expensive coding and customization services. No tech skills needed to create professional websites in our site builder.
-
-## Screenshots ##
-
-1. Hero block with settings
-2. Google Map block with settings
+This plugin will help you to delete all products with one click and change item name on paypal with order ID.
+And there will be many more useful features that will be updated in the future.
 
 ## Installation ##
 
-1. Upload `vnh_name` folder to the `/wp-content/plugins/` directory
-2. Install and activate the Gutenberg WordPress plugin if you use WordPress lower than 5.0.
-3. Activate the plugin through the 'Plugins' menu in WordPress
-4. You will be redirected to the `vnh_name` Welcome page to get your started
+1. In your admin panel, go to Plugins -> Add New.
+2. Type `vnh_name` in the search form and press the 'Enter' key on your keyboard.
+3. Click on the `Activate` button to activate the plugin.
 
