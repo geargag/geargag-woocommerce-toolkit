@@ -1,15 +1,15 @@
 <?php
 
-namespace vnh_namespace\settings_page;
+namespace GearGag_WooCommerce_Toolkit\settings_page;
 
 defined('WPINC') || die();
 
-use vnh_namespace\tools\contracts\Renderable;
-use function vnh_namespace\get_plugin_details;
-use function vnh_namespace\is_open_ssl_enabled;
-use const vnh_namespace\DS;
-use const vnh_namespace\PLUGIN_NAME;
-use const vnh_namespace\PLUGIN_SLUG;
+use GearGag_WooCommerce_Toolkit\tools\contracts\Renderable;
+use function GearGag_WooCommerce_Toolkit\get_plugin_details;
+use function GearGag_WooCommerce_Toolkit\is_open_ssl_enabled;
+use const GearGag_WooCommerce_Toolkit\DS;
+use const GearGag_WooCommerce_Toolkit\PLUGIN_NAME;
+use const GearGag_WooCommerce_Toolkit\PLUGIN_SLUG;
 
 class Tab_Diagnostic_Info implements Renderable {
 	public $download_button_text;

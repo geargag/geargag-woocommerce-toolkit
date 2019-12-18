@@ -1,17 +1,17 @@
 <?php
 
-namespace vnh_namespace\settings_page;
+namespace GearGag_WooCommerce_Toolkit\settings_page;
 
 defined('WPINC') || die();
 
-use vnh_namespace\tools\contracts\Initable;
-use function vnh_namespace\get_plugin_url;
-use function vnh_namespace\is_plugin_settings_page;
-use const vnh_namespace\PLUGIN_DESCRIPTION;
-use const vnh_namespace\PLUGIN_NAME;
-use const vnh_namespace\PLUGIN_SLUG;
-use const vnh_namespace\PLUGIN_VERSION;
-use const vnh_namespace\PREMIUM_URL;
+use GearGag_WooCommerce_Toolkit\tools\contracts\Initable;
+use function GearGag_WooCommerce_Toolkit\get_plugin_url;
+use function GearGag_WooCommerce_Toolkit\is_plugin_settings_page;
+use const GearGag_WooCommerce_Toolkit\PLUGIN_DESCRIPTION;
+use const GearGag_WooCommerce_Toolkit\PLUGIN_NAME;
+use const GearGag_WooCommerce_Toolkit\PLUGIN_SLUG;
+use const GearGag_WooCommerce_Toolkit\PLUGIN_VERSION;
+use const GearGag_WooCommerce_Toolkit\PREMIUM_URL;
 
 class Settings_Page implements Initable {
 	public $premium_url = PREMIUM_URL;

@@ -1,8 +1,8 @@
 <?php
 
-namespace vnh_namespace;
+namespace GearGag_WooCommerce_Toolkit;
 
-use vnh_namespace\settings_page\Settings_Page;
+use GearGag_WooCommerce_Toolkit\settings_page\Settings_Page;
 
 defined('WPINC') || die();
 

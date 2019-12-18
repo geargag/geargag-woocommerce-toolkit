@@ -1,6 +1,6 @@
 <?php
 
-namespace vnh_namespace\tools;
+namespace GearGag_WooCommerce_Toolkit\tools;
 
 class KSES {
 	public $context = [

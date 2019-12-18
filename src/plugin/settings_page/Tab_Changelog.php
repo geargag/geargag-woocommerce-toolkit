@@ -1,11 +1,11 @@
 <?php
 
-namespace vnh_namespace\settings_page;
+namespace GearGag_WooCommerce_Toolkit\settings_page;
 
 defined('WPINC') || die();
 
-use vnh_namespace\tools\contracts\Renderable;
-use function vnh_namespace\get_plugin_path;
+use GearGag_WooCommerce_Toolkit\tools\contracts\Renderable;
+use function GearGag_WooCommerce_Toolkit\get_plugin_path;
 
 class Tab_Changelog implements Renderable {
 	public function __toString() {
