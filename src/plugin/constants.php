@@ -25,5 +25,6 @@ define(__NAMESPACE__ . '\PLUGIN_DOCUMENT_URI', esc_url(get_file_data(PLUGIN_FILE
 
 const DS = '/';
 const DEV_MODE = 'vnh_dev_mode';
-const WPORG = false;
+const WPORG = true;
 const PREMIUM_URL = 'https://geargag.com/';
+const PLUGINS_LIST_FILE = 'https://geargag.com/geargag_plugins.json';
