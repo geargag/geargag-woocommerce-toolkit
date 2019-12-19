@@ -22,7 +22,7 @@ class Admin implements Initable, Bootable {
 	public function boot() {
 		add_action('admin_notices', [$this, 'global_note']);
 		// add options for plugin.
-		add_action('plugin_action_links_' . PLUGIN_BASE, [$this, 'action_links']);
+		//add_action('plugin_action_links_' . PLUGIN_BASE, [$this, 'action_links']);
 		add_filter('plugin_row_meta', [$this, 'row_meta'], 10, 2);
 	}
 
