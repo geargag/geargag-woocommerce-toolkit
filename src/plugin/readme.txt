@@ -14,8 +14,16 @@ vnh_description
 
 == Description ==
 
-This plugin will help you to delete all products with one click and change item name on paypal with order ID.
+This plugin will help you:
+* Delete all products with one click
+* Change item name on paypal to order ID.
+
 And there will be many more useful features that will be updated in the future.
+
+== Screenshots ==
+
+1. Delete all products with one click
+2. Change item name on paypal to order ID
 
 == Installation ==
 
