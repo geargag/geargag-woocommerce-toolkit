@@ -5,12 +5,14 @@ namespace GearGag_WooCommerce_Toolkit\settings_page;
 defined('WPINC') || die();
 
 use GearGag_WooCommerce_Toolkit\tools\contracts\Initable;
+use WP_Error;
 use function GearGag_WooCommerce_Toolkit\get_plugin_url;
 use function GearGag_WooCommerce_Toolkit\is_plugin_settings_page;
 use const GearGag_WooCommerce_Toolkit\PLUGIN_DESCRIPTION;
 use const GearGag_WooCommerce_Toolkit\PLUGIN_NAME;
 use const GearGag_WooCommerce_Toolkit\PLUGIN_SLUG;
 use const GearGag_WooCommerce_Toolkit\PLUGIN_VERSION;
+use const GearGag_WooCommerce_Toolkit\PLUGINS_LIST_FILE;
 use const GearGag_WooCommerce_Toolkit\PREMIUM_URL;
 
 class Settings_Page implements Initable {
@@ -18,33 +20,9 @@ class Settings_Page implements Initable {
 	public $icon_url = 'dashicons-carrot';
 	public $capacity = 'manage_options';
 	public $settings;
-	public $plugins_list;
 
 	const MENU_SLUG = 'geargag_plugins';
 	const PLUGIN_PAGE_SLUG = self::MENU_SLUG . '_' . PLUGIN_SLUG;
-
-	public function __construct() {
-		$this->plugins_list = [
-			[
-				'name' => __('GearGag Toolkit', 'vnh_textdomain'),
-				'author' => __('GearGag Team', 'vnh_textdomain'),
-				'description' => __('Interdum sagittis facilisis cras feugiat lacus nisi sociosqu fringilla.', 'vnh_textdomain'),
-				'link' => 'https://geargag.com',
-			],
-			[
-				'name' => __('GearGag Feed', 'vnh_textdomain'),
-				'author' => __('GearGag Team', 'vnh_textdomain'),
-				'description' => __('Interdum sagittis facilisis cras feugiat lacus nisi sociosqu fringilla.', 'vnh_textdomain'),
-				'link' => 'https://geargag.com',
-			],
-			[
-				'name' => __('GearGag Advanced Shipping', 'vnh_textdomain'),
-				'author' => __('GearGag Team', 'vnh_textdomain'),
-				'description' => __('Interdum sagittis facilisis cras feugiat lacus nisi sociosqu fringilla.', 'vnh_textdomain'),
-				'link' => 'https://geargag.com',
-			],
-		];
-	}
 
 	public function init() {
 		$this->settings = new Tab_Settings();
@@ -174,7 +152,7 @@ class Settings_Page implements Initable {
 		$html .= $this->get_nav_link(null, $active_tab, __('Hot plugins', 'vnh_textdomain'));
 		$html .= '</div>';
 		$html .= '<div class="plugins-list">';
-		foreach ($this->plugins_list as $plugin) {
+		foreach ($this->get_plugins_list() as $plugin) {
 			$html .= sprintf(
 				'<div class="card">
                   <div class="card-image"><img class="img-responsive" src="%s" alt="%s"></div>
@@ -198,6 +176,36 @@ class Settings_Page implements Initable {
 		$html .= '</div>';
 
 		echo $html;
+	}
+
+	protected function get_plugins_list() {
+		$cached_plugins_list = get_transient('geargag_plugins_list');
+
+		if (!is_wp_error($cached_plugins_list) && !empty($cached_plugins_list)) {
+			return $cached_plugins_list;
+		}
+
+		$remote = wp_remote_get(PLUGINS_LIST_FILE);
+
+		if (!$remote) {
+			return new WP_Error('failed_to_connect', __('Failed to connect to the server', 'vnh_textdomain'));
+		}
+
+		if (is_wp_error($remote)) {
+			return $remote;
+		}
+
+		if (wp_remote_retrieve_response_code($remote) !== 200) {
+			return new WP_Error('invalid_status', __('Invalid Status code.', 'vnh_textdomain'), compact('remote'));
+		}
+
+		$response = wp_remote_retrieve_body($remote);
+
+		$response = json_decode($response, true);
+
+		set_transient('geargag_plugins_list', $response, DAY_IN_SECONDS * 7);
+
+		return $response;
 	}
 
 	protected function get_nav_link($tab, $active_tab, $name) {
